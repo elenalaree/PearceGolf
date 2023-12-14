@@ -3,10 +3,18 @@ PearceGolf
 """
 import random
 import arcade
-from network import Network
-import pickle
-from player import Player
+# from network import Network
+# import pickle
+# from player import Player
+# from client import Network
 
+# n = Network()
+# player_action = {"type": "move_card", "cards": [], "from_pile": 0, "to_pile": 0}
+
+
+# # Receive data from the server
+# received_data = n.connect()
+# print(received_data)
 
 # Screen title and size
 SCREEN_WIDTH = 1224
@@ -77,8 +85,8 @@ PLAYER_2_PILE_5 = 13
 PLAYER_2_PILE_6 = 14
  
 
-PLAYER_1 = Player("Player 1", [])
-PLAYER_2 = Player("Player 2", [])
+# PLAYER_1 = Player("Player 1", [])
+# PLAYER_2 = Player("Player 2", [])
 
 class Card(arcade.Sprite):
     """ Card sprite """
@@ -220,12 +228,12 @@ class MyGame(arcade.Window):
 
             # Move card to same position as pile we just put it in
             card.position = self.pile_mat_list[i].position
-        self.check_hand()
+        # self.check_hand()
 
-    def check_hand(self):
+    # def check_hand(self):
 
-        PLAYER_1.cards = [self.piles[PLAYER_1_PILE_1]]
-        PLAYER_2.cards = []
+        # PLAYER_1.cards = [self.piles[PLAYER_1_PILE_1]]
+        # PLAYER_2.cards = []
         
     def on_draw(self):
         """ Render the screen. """
@@ -363,11 +371,13 @@ class MyGame(arcade.Window):
 
 def main():
     """ Main function """
-    run = True
-    n = Network()
-    p = n.getP()
-    while run:
-        p2 = n.send(p)
+    # run = True
+    # n = Network()
+    # p = n.getP()
+    # while run:
+    #     n.send(p)
+    #     # Send data to the server
+    #     n.send(player_action)
     window = MyGame()
     window.setup()
     arcade.run()
